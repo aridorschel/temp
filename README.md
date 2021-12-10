@@ -1,10 +1,17 @@
-# Guidelines on code submission and maintenance
+# Guidelines on Code Submission and Maintenance
 
-Overview of this document:
-**Using github: A recap** / The basic commands / Creating a new repository / Resources on collaborative features / Further resources / **Best practices for code maintenance** / Further resources
+## Table of Content:
+-[Using Github: A Recap]
+    - [The Basic Commands](#basic_commands)
+    - [Creating a new repository]
+    
+-[
+
+Using github: A recap** / The basic commands / Creating a new repository / Resources on collaborative features / Further resources / **Best practices for code maintenance** / Further resources
 
 ## USING GITHUB: A RECAP
 
+<a name="basic_commands"></a>
 ### The basic commands
 
 AFTER MAKING LOCAL CHANGES CHANGES:
