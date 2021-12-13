@@ -1,34 +1,18 @@
-# Guidelines on code submission and maintenance
+# Guidelines on Code Submission and Maintenance
 
-Overview of this document:
-**Using github: A recap** / The basic commands / Creating a new repository / Resources on collaborative features / Further resources / **Best practices for code maintenance** / Further resources
+## Table of Content:
+- [Using Github: A Recap](#using_github)
+  - [Creating a new repository](#create_repo)
+  - [The Basic Commands](#basic_commands)
+  - [Resources on Collaborative Projects](#collab_projects)
+  - [Further Resources](#furt_res_1)
+- [Best Practices for Code Maintenance](#best_practices)
+  - [Further Resources](#furt_res_2)
 
+<a name="using_github"></a>
 ## USING GITHUB: A RECAP
 
-### The basic commands
-
-AFTER MAKING LOCAL CHANGES CHANGES:
-
-- `git add`: indicates what changes to save. After you’ve made some small modifications to your project locally and checked that they work, use ‘git add’ to indicate that they’re ready.
-
-- `git commit -m 'yourmessage'`: use this command to add the modifications to the repository; add a brief commit message (40-60 characters) indicating what this update adds. If you want to amend your last commit message, type: git commit –amend -m 'new commit message'
-
-- `git commit -a`: use this command if you want to commit all of the modifications you’ve made without having to explicitly add each file. This allows you to skip the separate ‘add’ and ‘commit’ commands
-
-- `git push`: use this command to push commited changes to github
-
-SEEING WHAT YOU HAVE CHANGED:
-
-- `git status`: lists files that have been changed, as well as new files that haven’t been formally added.
-
-- `git diff`: shows you which lines have been added and which have been deleted
-
-- `git log`: to look at the history
-
-PULL CHANGES FROM COLLABORATORS:
-
-- `git pull`/`git fetch`/`git merge`
-
+<a name="create_repo"></a>
 ### Creating a new repository
 
 (a) CREATING LOCAL GIT REPOSITORY
@@ -49,34 +33,69 @@ Note that steps 1 and 2 are only necessary if you are creating the repository fr
 4. Click 'create repository'
 5. Choose 'push an existing repository'
 
+Alternatively, use the following commands from the terminal to do (b): 
 ```
 $ git remote add origin git@github.com:username/new_repo
 $ git push -u origin master
 ```
 
+<a name="basic_commands"></a>
+### The basic commands
+
+AFTER MAKING LOCAL CHANGES:
+
+- `git add`: indicates what changes to save. After you’ve made some small modifications to your project locally and checked that they work, use ‘git add’ to indicate that they’re ready.
+
+- `git commit -m 'yourmessage'`: use this command to add the modifications to the repository; add a brief commit message (40-60 characters) indicating what this update adds. If you want to amend your last commit message, type: `git commit –amend -m 'new commit message'`.
+
+- `git commit -a`: use this command if you want to commit all of the modifications you’ve made without having to explicitly add each file. This allows you to skip the separate ‘add’ and ‘commit’ commands.
+
+- `git push`: use this command to push committed changes to github.
+
+SEEING WHAT YOU HAVE CHANGED:
+
+- `git status`: lists files that have been changed, as well as new files that haven’t been formally added.
+
+- `git diff`: shows you which lines have been added and which have been deleted.
+
+- `git log`: shows a list of all the commits made to the repository. 
+
+PULL CHANGES FROM COLLABORATORS:
+
+- `git fetch`: pulls changes from a remote but does not merge with local (eg. if you're working in master origin/master will be updated where as master stays the same). Use `git diff master origin/master` to check differences between remote and local.  
+
+- `git pull`: pulls changes from a remote and instantly merges with local.
+
+<a name="collab_projects"></a>
 ### Resources on collaborative features:
-[Here](https://kbroman.org/github_tutorial/pages/fork.html) are instructions for contributing to someone's repository via forking.
+- Creating branches and merging: Creating separate branches is useful to develop a feature without disturbing the master branch; once you are satisfied you can merge these changes into the master. [Here](https://kbroman.org/github_tutorial/pages/branching.html) you can find instructions on how to branch and merge.
 
-[Here](https://kbroman.org/github_tutorial/pages/fork.html) are instructions for handling merge conflicts.
+- Merge conflicts: [Here](https://kbroman.org/github_tutorial/pages/fork.html) are instructions for handling merge conflicts.
 
-Creating separate branches is useful to develop a feature without disturbing the master branch; once you are satisfied you can merge these changes into the master. [Here](https://kbroman.org/github_tutorial/pages/branching.html) you can find instructions on how to branch and merge.
+- Forking: [Here](https://kbroman.org/github_tutorial/pages/fork.html) are instructions for contributing to someone's repository via forking.
 
-[Here](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) are instructions on how to format, e.g. when writing your README file.
+- Formatting: [Here](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) are instructions on how to format, e.g. when writing your README file.
 
+<a name="furt_res_1"></a>
 ### Further resources:
-General tutorial that the instructions above are based on: [Click here](https://kbroman.org/github_tutorial/)
+General tutorial which the instructions above are based on: [Click here](https://kbroman.org/github_tutorial/)
 
 Annotated lecture slides on git & github: [Click here](https://kbroman.org/Tools4RR/assets/lectures/04_git_withnotes.pdf)
 
 Overview of git commands: [Click here](https://github.com/kbroman/Tools4RR/blob/master/04_Git/GitCommands/git_notes.md)
 
+<a name="best_practices"></a>
 ## BEST PRACTICES FOR CODE MAINTENANCE
+
+- **Commit messages**: write good and concise commit messages that will also make sense at a later timepoint.
+
+- **Create a README file for your project**: when you create a new repository, consider making a README that gives an overview of what the different scripts in your project do. You can find an example template [here](https://github.com/elsewhencode/project-guidelines/blob/master/README.sample.md).
 
 - **Commenting**: Write comments as you code and don't leave this for later; make sure that they would still make sense months later, when you might be working on something else. 
 
 - **Avoid hardcoded values**: if absolutely necessary, add a comment explaining where the value came from - is it from an equation, a paper, an experimental observation...?
 
-- **Naming variables and functions**: ideally choose names that are self-explanatory to improve readability
+- **Naming variables and functions**: ideally choose names that are self-explanatory to improve readability.
 
 - **Default argument values**: consider specifying values for variables at the end of a parameter list; e.g. def function1(a, b=0), especially when you already know that there will be only rare occasions where you would need to override these default values. Be careful to not use mutable objects as default values in the function or method definition.
 
@@ -88,17 +107,14 @@ Overview of git commands: [Click here](https://github.com/kbroman/Tools4RR/blob/
 def add_binary(a, b):
     '''
     Returns the sum of two decimal numbers in binary digits.
-
             Parameters:
                     a (int): A decimal integer
                     b (int): Another decimal integer
-
             Returns:
                     binary_sum (str): Binary string of the sum of a and b
     '''
     binary_sum = bin(a+b)[2:]
     return binary_sum
-
 print(add_binary.__doc__)
 ```
 
@@ -107,16 +123,13 @@ print(add_binary.__doc__)
 ```
 from numba import jit
 import numpy as np
-
 x = np.arange(100).reshape(10, 10)
-
 @jit(nopython=True) # Set "nopython" mode for best performance, equivalent to @njit
 def go_fast(a): # Function is compiled to machine code when called the first time
     trace = 0.0
     for i in range(a.shape[0]):   # Numba likes loops
         trace += np.tanh(a[i, i]) # Numba likes NumPy functions
     return a + trace              # Numba likes NumPy broadcasting
-
 print(go_fast(x))
 ```
 Instead of writing `@jit(nopython=True)`, you can use the `@njit` decorator, which is an alias for the former.
@@ -127,11 +140,7 @@ Useful extra options that you can specify in your decorator are:
 
 - **Consider using pylint to find bugs or style problems**: you can install pylint via pip (`pip install pylint`), or from the source distribution. Pylint is meant to be called from the command line (e.g. `pylint mymodule.py`).
 
-*2 more suggestions to bear in mind when submitting your code to Github...*
-- **Commit messages**: write good and concise commit messages that will also make sense at a later timepoint.
-- **Create README file for your project**: when you create a new repository, consider making a README that gives an overview of what the different scripts in your project do. You can find an example template [here](https://github.com/elsewhencode/project-guidelines/blob/master/README.sample.md).
-
-
+<a name="furt_res_2"></a>
 ### Further resources:
 Python style guide: [Click here](https://google.github.io/styleguide/pyguide.html)
 
@@ -140,6 +149,3 @@ Numba documentation: [Click here](https://numba.readthedocs.io/en/stable/user/in
 Pylint tutorial: [Click here](https://pylint.pycqa.org/en/latest/tutorial.html)
 
 Paper on documenting scientific code: [Click here](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006561)
-
-
-
